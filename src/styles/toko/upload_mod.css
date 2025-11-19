@@ -1,0 +1,363 @@
+/* Upload Mod Styles */
+.toko-upload-form {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toko-upload-form label {
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.toko-upload-form input[type="text"],
+.toko-upload-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 12.5px;
+  background: #fff;
+}
+
+/* File upload section */
+.toko-upload-group {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toko-file-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8ff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12.5px;
+}
+
+.toko-file-row input[type="file"] {
+  font-size: 11.5px;
+  background: #a586ff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Kategori */
+.toko-kategori {
+  margin-top: 10px;
+}
+
+.toko-kategori-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.toko-kategori-btns button {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px 15px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.toko-kategori-btns button.toko-active {
+  background: #a586ff;
+  color: #fff;
+  border: none;
+}
+
+.toko-kategori-btns button:hover {
+  background: #e9e1ff;
+}
+
+/* Tombol upload */
+.toko-btn-upload {
+  background: #a586ff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 30px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 15px;
+  align-self: flex-start;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 20;
+}
+
+.toko-btn-upload:hover {
+  background: #8d6cff;
+}
+
+/* POPUP TOKO */
+/* src/styles/toko/upload_mod.css - Tambahkan bagian ini */
+
+/* Popup Styles */
+.toko-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: toko-fadeIn 0.3s ease;
+}
+
+.toko-popup-content {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  animation: toko-slideUp 0.4s ease;
+  border: 1px solid #e9ecef;
+}
+
+.toko-popup-icon {
+  margin-bottom: 20px;
+}
+
+.toko-popup-check {
+  width: 80px;
+  height: 80px;
+  background: #28a745;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 auto;
+  animation: toko-bounce 0.6s ease;
+}
+
+.toko-popup-text h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.toko-popup-text p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.toko-popup-actions {
+  margin-top: 25px;
+}
+
+.toko-popup-btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.toko-popup-btn-primary {
+  background: #7b3fe4;
+  color: white;
+}
+
+.toko-popup-btn-primary:hover {
+  background: #6933c7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(123, 63, 228, 0.3);
+}
+
+/* Animations */
+@keyframes toko-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes toko-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toko-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Popup */
+@media (max-width: 768px) {
+  .toko-popup-content {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+  
+  .toko-popup-check {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+  
+  .toko-popup-text h3 {
+    font-size: 20px;
+  }
+  
+  .toko-popup-text p {
+    font-size: 14px;
+  }
+  
+  .toko-popup-btn {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}
+/* Tambahkan ke src/styles/toko/upload_mod.css */
+
+/* Image Preview Styles */
+.toko-image-preview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.toko-image-preview-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.toko-image-preview {
+  width: 120px;
+  height: 120px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.toko-image-preview:hover {
+  border-color: #7b3fe4;
+  background: #f0f0f0;
+}
+
+.toko-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.toko-no-image {
+  font-size: 24px;
+  color: #999;
+  font-weight: bold;
+}
+
+.toko-image-label {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+/* Styling untuk input harga */
+.toko-upload-form input[type="number"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.toko-upload-form input[type="number"]:focus {
+  outline: none;
+  border-color: #7b3fe4;
+  background: #fafafa;
+  box-shadow: 0 0 0 3px rgba(123, 63, 228, 0.1);
+}
+
+.toko-upload-form input[type="number"]:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Styling khusus untuk input harga */
+.toko-harga-input {
+  position: relative;
+}
+
+.toko-harga-input::before {
+  content: "Rp";
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-weight: 500;
+  z-index: 1;
+}
+
+.toko-harga-input input {
+  padding-left: 45px !important;
+}
+
+/* Hapus spinner pada input number */
+.toko-upload-form input[type="number"]::-webkit-outer-spin-button,
+.toko-upload-form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*.toko-upload-form input[type="number"] {
+  -moz-appearance: textfield;
+}*/

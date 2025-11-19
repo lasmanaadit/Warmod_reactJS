@@ -1,0 +1,123 @@
+/* Base styles untuk semua halaman toko */
+.toko-body {
+    background: #fafafa;
+    color: #111;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .toko-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* SIDEBAR TOKO */
+  .toko-sidebar {
+    width: 220px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+  }
+  
+  .toko-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 50px;
+  }
+  
+  .toko-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .toko-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .toko-info h4 {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .toko-info p {
+    font-size: 11px;
+    color: #777;
+  }
+  
+  /* Menu Sidebar Toko */
+  .toko-sidebar nav {
+    margin-top: 10px;
+  }
+  
+  .toko-sidebar nav a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 25px 0;
+    font-weight: 500;
+    font-size: 12px;
+    transition: all 0.2s ease;
+  }
+  
+  .toko-sidebar nav a.toko-active,
+  .toko-sidebar nav a:hover {
+    color: #7b3fe4;
+    font-weight: 600;
+  }
+  
+  .toko-logout {
+    margin-top: auto;
+    padding-top: 10px;
+  }
+  
+  .toko-logout a {
+    text-decoration: none;
+    color: #d33;
+    font-weight: 500;
+    font-size: 12.5px;
+  }
+  
+  /* MAIN CONTENT TOKO */
+  .toko-main {
+    flex: 1;
+    padding: 25px;
+  }
+  
+  .toko-main h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  /* Responsive Toko */
+  @media (max-width: 768px) {
+    .toko-container {
+      flex-direction: column;
+    }
+  
+    .toko-sidebar {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      border-right: none;
+      border-bottom: 1px solid #eee;
+    }
+  
+    .toko-main {
+      padding: 15px;
+    }
+  }

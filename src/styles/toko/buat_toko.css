@@ -1,0 +1,155 @@
+/* src/styles/toko/buat_toko.css */
+.toko-buat-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .toko-buat-content {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .toko-buat-header {
+    background: linear-gradient(135deg, #7b3fe4, #9d5fe9);
+    color: white;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .toko-buat-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  
+  .toko-buat-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 16px;
+  }
+  
+  .toko-buat-form {
+    padding: 40px;
+  }
+  
+  .toko-form-group {
+    margin-bottom: 25px;
+  }
+  
+  .toko-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .toko-form-input, .toko-form-textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    box-sizing: border-box;
+  }
+  
+  .toko-form-input:focus, .toko-form-textarea:focus {
+    outline: none;
+    border-color: #7b3fe4;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(123, 63, 228, 0.1);
+  }
+  
+  .toko-form-textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+  }
+  
+  .toko-form-group small {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px;
+  }
+  
+  .toko-form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .toko-btn {
+    flex: 1;
+    padding: 15px 25px;
+    border: 2px solid;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .toko-btn-primary {
+    background: #7b3fe4;
+    border-color: #7b3fe4;
+    color: white;
+  }
+  
+  .toko-btn-primary:hover:not(:disabled) {
+    background: #6933c7;
+    border-color: #6933c7;
+    transform: translateY(-2px);
+  }
+  
+  .toko-btn-outline {
+    background: transparent;
+    border-color: #7b3fe4;
+    color: #7b3fe4;
+  }
+  
+  .toko-btn-outline:hover:not(:disabled) {
+    background: #7b3fe4;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .toko-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .toko-buat-container {
+      padding: 10px;
+    }
+    
+    .toko-buat-header {
+      padding: 30px 20px;
+    }
+    
+    .toko-buat-header h1 {
+      font-size: 24px;
+    }
+    
+    .toko-buat-form {
+      padding: 30px 20px;
+    }
+    
+    .toko-form-actions {
+      flex-direction: column;
+    }
+  }

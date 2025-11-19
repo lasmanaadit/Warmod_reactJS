@@ -1,0 +1,208 @@
+/* src/styles/toko/terms_condition.css */
+.toko-terms-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .toko-terms-content {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .toko-terms-header {
+    background: linear-gradient(135deg, #7b3fe4, #9d5fe9);
+    color: white;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .toko-terms-header h1 {
+    margin: 0 0 15px 0;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .toko-terms-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .toko-terms-badge span {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+  }
+  
+  .toko-terms-body {
+    padding: 40px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .toko-terms-section {
+    margin-bottom: 30px;
+  }
+  
+  .toko-terms-section h3 {
+    color: #7b3fe4;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-left: 4px solid #7b3fe4;
+    padding-left: 15px;
+  }
+  
+  .toko-terms-section p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .toko-terms-section ul {
+    color: #666;
+    padding-left: 20px;
+  }
+  
+  .toko-terms-section li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  
+  .toko-terms-footer {
+    padding: 30px 40px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+  }
+  
+  .toko-terms-agreement {
+    margin-bottom: 25px;
+  }
+  
+  .toko-terms-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .toko-terms-checkbox input {
+    display: none;
+  }
+  
+  .toko-checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .toko-terms-checkbox input:checked + .toko-checkmark {
+    background: #7b3fe4;
+    border-color: #7b3fe4;
+  }
+  
+  .toko-terms-checkbox input:checked + .toko-checkmark::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .toko-terms-actions {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .toko-btn {
+    flex: 1;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .toko-btn-primary {
+    background: #7b3fe4;
+    color: white;
+  }
+  
+  .toko-btn-primary:hover {
+    background: #6933c7;
+    transform: translateY(-2px);
+  }
+  
+  .toko-btn-secondary {
+    background: white;
+    color: #7b3fe4;
+    border: 2px solid #7b3fe4;
+  }
+  
+  .toko-btn-secondary:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .toko-terms-container {
+      padding: 10px;
+    }
+    
+    .toko-terms-header {
+      padding: 30px 20px;
+    }
+    
+    .toko-terms-header h1 {
+      font-size: 24px;
+    }
+    
+    .toko-terms-body {
+      padding: 20px;
+      max-height: 400px;
+    }
+    
+    .toko-terms-footer {
+      padding: 20px;
+    }
+    
+    .toko-terms-actions {
+      flex-direction: column;
+    }
+  }
+  /* Tambahkan ke src/styles/toko/terms_condition.css */
+.toko-btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+  
+  .toko-btn-disabled:hover {
+    background: #7b3fe4 !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }

@@ -1,0 +1,104 @@
+/* Profil Toko Styles */
+.toko-profile-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Foto profil toko */
+.toko-profile-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.toko-profile-photo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.2s ease;
+  border: 3px solid transparent;
+}
+
+.toko-profile-photo img:hover {
+  opacity: 0.8;
+  border: 3px solid #7b3fe4;
+}
+
+.toko-edit-btn {
+  background: #7b3fe4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.toko-edit-btn:hover {
+  background: #6933c7;
+}
+
+/* Form profil toko */
+.toko-profile-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toko-profile-form label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #444;
+}
+
+.toko-profile-form input,
+.toko-profile-form textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #333;
+}
+
+.toko-profile-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.toko-save-btn {
+  background: #7b3fe4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 8px;
+  width: fit-content;
+  transition: background 0.2s ease;
+}
+
+.toko-save-btn:hover {
+  background: #6933c7;
+}
+
+.toko-profile-form input[readonly],
+.toko-profile-form textarea[readonly] {
+  background: #f8f8f8;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .toko-profile-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
