@@ -322,3 +322,53 @@
 .toko-item-date {
   color: #6c757d;
 }
+/* Tambahkan ke src/styles/toko/dashboard_toko.css */
+
+/* Tombol Tarik Saldo */
+.toko-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.toko-card-header h4 {
+  margin: 0;
+  font-weight: 500;
+  color: #777;
+  font-size: 12px;
+}
+
+.toko-tarik-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.toko-tarik-btn:hover:not(:disabled) {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.toko-tarik-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.toko-card-footer {
+  margin-top: 10px;
+}
+
+.toko-saldo-note {
+  font-size: 10px;
+  color: #666;
+  font-style: italic;
+}

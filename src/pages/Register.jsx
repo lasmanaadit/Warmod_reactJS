@@ -1,7 +1,8 @@
 // src/pages/Register.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styles from '../styles/Auth.module.css'; // ← CSS Module
+import { Link, useNavigate } from 'react-router-dom';
+import { useUserAuth } from '../context/UserAuthContext'; // <- PERUBAHAN DI SINI
+import styles from '../styles/Auth.module.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,9 @@ const Register = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  
+  const { register } = useUserAuth(); // <- PERUBAHAN DI SINI
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -26,30 +30,23 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Simulasi registrasi berhasil
-    setShowPopup(true);
-    
-    // Save user data to localStorage
-    const userData = {
-      name: formData.fullname,
-      email: formData.email
-    };
-    localStorage.setItem('warmodProfile', JSON.stringify(userData));
-    
-    setTimeout(() => {
-      setShowPopup(false);
-      window.location.href = '/login';
-    }, 1500);
+    const result = register(formData.fullname, formData.email, formData.password);
+    if (result.success) {
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false);
+        navigate('/');
+      }, 1500);
+    }
   };
 
   return (
-    <div className={styles.authContainer}> {/* ← Gunakan CSS Module */}
-      {/* Back Button */}
+    <div className={styles.authContainer}>
       <Link to="/login" className={styles.backBtn}>
         <span className={styles.arrow}>‹</span> Back
       </Link>
 
-      <div className={styles.authBox}> {/* ← Gunakan CSS Module */}
+      <div className={styles.authBox}>
         <h2 className={styles.authTitle}>Create an Account</h2>
         <p className={styles.authSubtitle}>
           Sudah punya akun? <Link to="/login">Login Disini</Link>
@@ -104,10 +101,9 @@ const Register = () => {
         </form>
       </div>
 
-      {/* Success Popup */}
       {showPopup && (
         <div className={`${styles.authPopup} ${styles.show}`}>
-          Register berhasil! Anda akan diarahkan ke halaman login
+          Register berhasil! Anda akan diarahkan ke halaman beranda
         </div>
       )}
     </div>

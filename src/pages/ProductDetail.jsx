@@ -8,6 +8,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const { addToCart } = useCart();
   const [mainImage, setMainImage] = useState('ets2_20240816_171954_00.png');
+  const [addingToCart, setAddingToCart] = useState(false);
 
   // Data produk sementara - nanti dari API berdasarkan ID
   const product = {
@@ -33,16 +34,35 @@ const ProductDetail = () => {
     ]
   };
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
+    if (addingToCart) return;
+    
+    setAddingToCart(true);
+    
     const productData = {
       title: product.title,
       category: product.category,
       seller: product.seller,
       price: product.price,
-      image: product.images[0]
+      image: product.images[0],
+      productId: product.id // Tambahkan productId untuk referensi
     };
     
-    addToCart(productData);
+    try {
+      await addToCart(productData);
+      
+      // Show success feedback
+      console.log('Product added to cart:', productData);
+      
+      // Reset loading state
+      setTimeout(() => {
+        setAddingToCart(false);
+      }, 500);
+      
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      setAddingToCart(false);
+    }
   };
 
   const handleBuyNow = () => {
@@ -50,7 +70,7 @@ const ProductDetail = () => {
     // Redirect ke checkout
     setTimeout(() => {
       window.location.href = '/checkout';
-    }, 500);
+    }, 1000);
   };
 
   return (
@@ -85,11 +105,11 @@ const ProductDetail = () => {
             </div>
 
             <div className="product-actions">
-              <button className="buy-now-btn" onClick={handleBuyNow}>
-                <FaBolt/> Beli Sekarang
+              <button className="buy-now-btn" onClick={handleBuyNow} disabled={addingToCart}>
+                <FaBolt/> {addingToCart ? 'Menambah...' : 'Beli Sekarang'}
               </button>
-              <button className="add-to-cart-btn" onClick={handleAddToCart}>
-                <FaCartPlus/>Tambah ke Keranjang
+              <button className="add-to-cart-btn" onClick={handleAddToCart} disabled={addingToCart}>
+                <FaCartPlus/> {addingToCart ? 'Menambah...' : 'Tambah ke Keranjang'}
               </button>
             </div>
 
@@ -122,8 +142,6 @@ const ProductDetail = () => {
             Aliquam arcu neque, vestibulum eget aliquet non, luctus sed neque. Sed lobortis malesuada
             pretium. Praesent vel dapibus lacus, a sagittis nibh.
           </p>
-
-        
         </div>
       </div>
     </section>

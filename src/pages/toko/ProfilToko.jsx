@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/toko/Sidebar';
 import { useToko } from '../../context/TokoContext';
-import { useAuth } from '../../context/AuthContext';
+import { useUserAuth } from '../../context/UserAuthContext'; // <- PERBAIKAN: useAuth -> useUserAuth
 import '../../styles/toko/toko-base.css';
 import '../../styles/toko/profil_toko.css';
 
 const ProfilToko = () => {
   const { tokoData, buatToko } = useToko();
-  const { user } = useAuth();
+  const { user } = useUserAuth(); // <- PERBAIKAN: useAuth -> useUserAuth
   const [formData, setFormData] = useState({
     namaPemilik: '',
     namaToko: '',
@@ -19,12 +19,12 @@ const ProfilToko = () => {
   const [fotoProfil, setFotoProfil] = useState('https://via.placeholder.com/120');
 
   useEffect(() => {
-    // Load data from localStorage dan user context
+    // Load data from localStorage, toko context, dan user context
     const savedData = {
-      namaPemilik: localStorage.getItem('namaPemilik') || user?.name || 'Lasmanaadit',
-      namaToko: localStorage.getItem('namaToko') || 'Nama Toko',
-      email: localStorage.getItem('email') || user?.email || 'lasmanaadit@gmail.com',
-      deskripsi: localStorage.getItem('deskripsi') || 'Deskripsi toko...'
+      namaPemilik: tokoData?.pemilik || localStorage.getItem('namaPemilik') || user?.name || 'Lasmanaadit',
+      namaToko: tokoData?.namaToko || localStorage.getItem('namaToko') || 'Nama Toko',
+      email: tokoData?.email || localStorage.getItem('email') || user?.email || 'lasmanaadit@gmail.com',
+      deskripsi: tokoData?.deskripsi || localStorage.getItem('deskripsi') || 'Deskripsi toko...'
     };
     
     setFormData(savedData);
@@ -33,7 +33,7 @@ const ProfilToko = () => {
     if (savedFoto) {
       setFotoProfil(savedFoto);
     }
-  }, [user]);
+  }, [user, tokoData]); // <- PERBAIKAN: Tambah dependency tokoData
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -63,7 +63,10 @@ const ProfilToko = () => {
     
     // Update toko data in context
     buatToko({
-      ...formData,
+      namaToko: formData.namaToko,
+      pemilik: formData.namaPemilik,
+      deskripsi: formData.deskripsi,
+      email: formData.email,
       fotoProfil: fotoProfil
     });
     

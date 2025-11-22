@@ -3,19 +3,28 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/toko/Sidebar';
 import { useToko } from '../../context/TokoContext';
-import {  FaShoppingBasket, FaClock, FaExclamationTriangle, FaDownload, FaCheck, FaTrash, FaEdit } from 'react-icons/fa';
 import '../../styles/toko/toko-base.css';
 import '../../styles/toko/dashboard_toko.css';
 
 const DashboardToko = () => {
   const { tokoData } = useToko();
   const [mods, setMods] = useState([]);
+  const [saldoTersedia, setSaldoTersedia] = useState(0);
+  const [totalPendapatan, setTotalPendapatan] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     // Load mods from localStorage
     const savedMods = JSON.parse(localStorage.getItem('mods')) || [];
     setMods(savedMods);
+    
+    // Load saldo dari localStorage
+    const saldo = localStorage.getItem('saldoToko') || '0';
+    setSaldoTersedia(parseInt(saldo));
+    
+    // Load total pendapatan (semua pendapatan tanpa dikurangi penarikan)
+    const totalPendapatanSaved = localStorage.getItem('totalPendapatanToko') || '9999999999';
+    setTotalPendapatan(parseInt(totalPendapatanSaved));
     
     // Update toko info in localStorage for sidebar
     if (tokoData) {
@@ -24,6 +33,18 @@ const DashboardToko = () => {
       localStorage.setItem('fotoToko', tokoData.fotoProfil || '');
     }
   }, [tokoData]);
+
+  const formatRupiah = (angka) => {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0
+    }).format(angka);
+  };
+
+  const handlePenarikanSaldo = () => {
+    navigate('/toko/penarikan');
+  };
 
   const hapusMod = (index) => {
     if (window.confirm('Apakah Anda yakin ingin menghapus mod ini?')) {
@@ -36,14 +57,6 @@ const DashboardToko = () => {
   const editMod = (index) => {
     localStorage.setItem('editIndex', index);
     navigate('/toko/edit-mod');
-  };
-  const formatHarga = (harga) => {
-    if (!harga || harga === 0) return 'Gratis';
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      minimumFractionDigits: 0
-    }).format(harga);
   };
 
   const previewMod = (index) => {
@@ -59,13 +72,39 @@ const DashboardToko = () => {
 
         <div className="toko-cards">
           <div className="toko-card">
-            <h4>Total Pendapatan</h4>
-            <p className="toko-value">Rp. 100.000</p>
+            <div className="toko-card-header">
+              <h4>Saldo Tersedia</h4>
+              <button 
+                className="toko-tarik-btn"
+                onClick={handlePenarikanSaldo}
+                disabled={saldoTersedia < 10000}
+              >
+                Tarik Saldo
+              </button>
+            </div>
+            <p className="toko-value">{formatRupiah(saldoTersedia)}</p>
+            <div className="toko-card-footer">
+              <span className="toko-saldo-note">
+                {saldoTersedia >= 10000 ? 'Saldo dapat ditarik' : 'Minimal Rp 10.000 untuk penarikan'}
+              </span>
+            </div>
           </div>
+          
           <div className="toko-card">
-            <h4>Total Item</h4>
+            <h4>Total Pendapatan</h4>
+            <p className="toko-value">{formatRupiah(totalPendapatan)}</p>
+            <div className="toko-card-footer">
+              <span className="toko-saldo-note">
+                Total semua pendapatan
+              </span>
+            </div>
+          </div>
+          
+          <div className="toko-card">
+            <h4>Total Terjual</h4>
             <p className="toko-value">{mods.length} Item</p>
           </div>
+          
           <div className="toko-card">
             <h4>Total Pesanan</h4>
             <p className="toko-value">5 Pesanan</p>
@@ -84,7 +123,6 @@ const DashboardToko = () => {
                 Upload Mod Pertama
               </button>
             </div>
-            
           ) : (
             mods.map((mod, index) => (
               <div key={index} className="toko-item-card" onClick={() => previewMod(index)}>
@@ -106,7 +144,7 @@ const DashboardToko = () => {
                   </div>
                 </div>
                 <div className="toko-price">
-                    {formatHarga(mod.harga)}
+                  {mod.harga ? formatRupiah(mod.harga) : 'Gratis'}
                 </div>
                 <div className="toko-actions" onClick={(e) => e.stopPropagation()}>
                   <button 
@@ -114,14 +152,14 @@ const DashboardToko = () => {
                     onClick={() => editMod(index)}
                     title="Edit Mod"
                   >
-                    <FaEdit/>
+                    ✏️
                   </button>
                   <button 
                     className="toko-action-btn toko-delete-btn"
                     onClick={() => hapusMod(index)}
                     title="Hapus Mod"
                   >
-                    <FaTrash/>
+                    🗑️
                   </button>
                 </div>
               </div>

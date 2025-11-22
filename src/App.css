@@ -1853,6 +1853,7 @@ footer {
   border-radius: 10px;
   margin: 20px 0;
   border-left: 4px solid #2196F3;
+  
 }
 
 .status-indicator {
@@ -2815,4 +2816,432 @@ footer {
 .cart-count.updating {
   transform: scale(1.2);
   background: #4CAF50;
+}
+.search-bar {
+  display: flex;
+  background: #f1f3f5;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s;
+}
+
+.search-bar:focus-within {
+  border-color: #ff5722;
+  box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  padding: 12px 20px;
+  color: #333;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-bar button {
+  background: #ff5722;
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  min-width: 50px;
+}
+
+.search-bar button:hover {
+  background: #e64a19;
+}
+
+/* Cart Animation */
+.cart-link.adding {
+  animation: cartBounce 0.6s ease;
+}
+
+@keyframes cartBounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  80% {
+    transform: translateY(-4px);
+  }
+}
+
+.cart-count {
+  transition: all 0.3s ease;
+}
+
+.cart-count.updating {
+  transform: scale(1.3);
+  background: #4CAF50;
+}
+
+/* Payment Status Styling Fix */
+.payment-status {
+  background: #e3f2fd;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  border-left: 4px solid #2196F3;
+  text-align: center;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  background: #2196F3;
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+
+.status-dot.paid {
+  background: #4CAF50;
+  animation: none;
+}
+
+#payment-status-text {
+  font-weight: 600;
+  color: #2196F3;
+}
+
+#payment-status-text.paid {
+  color: #4CAF50;
+}
+
+.status-description {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Demo Accounts Styling */
+.demo-accounts {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border-left: 4px solid #ff5722;
+}
+
+.demo-accounts h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.demo-accounts p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Error Message */
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #f44336;
+  font-size: 14px;
+}
+.payment-status-section {
+  background: #e3f2fd;
+  padding: 25px;
+  border-radius: 12px;
+  margin: 25px 0;
+  border-left: 5px solid #2196F3;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.1);
+}
+
+.payment-status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.payment-status-dot {
+  width: 14px;
+  height: 14px;
+  background: #2196F3;
+  border-radius: 50%;
+  animation: statusPulse 2s infinite;
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+}
+
+.payment-status-dot.paid {
+  background: #4CAF50;
+  animation: none;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.payment-status-text {
+  font-weight: 700;
+  color: #2196F3;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.payment-status-text.paid {
+  color: #4CAF50;
+}
+
+.payment-status-description {
+  color: #555;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+@keyframes statusPulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* QRIS Card Styling - Diperbaiki */
+.qris-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.qris-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.qris-header h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+/* Payment Expiry Styling - Diperbaiki */
+.payment-expiry-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  margin: 0 auto 25px auto;
+  max-width: 320px;
+}
+
+.payment-expiry-info.warning {
+  background: #fff3e0;
+  border-color: #ffb74d;
+}
+
+.payment-expiry-info.critical {
+  background: #ffebee;
+  border-color: #f44336;
+  animation: criticalPulse 1s infinite;
+}
+
+@keyframes criticalPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.expiry-info-content {
+  text-align: center;
+}
+
+.expiry-info-text {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.expiry-info-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.expiry-info-timer {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4CAF50;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.payment-expiry-info.warning .expiry-info-timer {
+  color: #ff9800;
+}
+
+.payment-expiry-info.critical .expiry-info-timer {
+  color: #f44336;
+}
+
+/* QRIS Code Container - Diperbaiki */
+.qris-code-container {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 25px auto;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.qris-code-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* QRIS Amount - Diperbaiki */
+.qris-amount-display {
+  background: linear-gradient(135deg, #ff5722, #e64a19);
+  color: white;
+  padding: 18px;
+  border-radius: 12px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+}
+
+.amount-display-label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.amount-display-value {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* QRIS Actions - Diperbaiki */
+.qris-actions-container {
+  display: flex;
+  gap: 12px;
+  margin: 25px 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.download-qr-btn, .refresh-qr-btn {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.download-qr-btn {
+  background: #2196F3;
+  color: white;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.download-qr-btn:hover {
+  background: #1976D2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+}
+
+.refresh-qr-btn {
+  background: #f5f5f5;
+  color: #666;
+  border: 2px solid #e0e0e0;
+}
+
+.refresh-qr-btn:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design untuk Payment */
+@media (max-width: 768px) {
+  .payment-status-section {
+    padding: 20px 15px;
+    margin: 20px 0;
+  }
+  
+  .payment-status-indicator {
+    gap: 8px;
+  }
+  
+  .payment-status-text {
+    font-size: 15px;
+  }
+  
+  .qris-card {
+    padding: 20px 15px;
+  }
+  
+  .qris-code-container {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .qris-actions-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .download-qr-btn, .refresh-qr-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .payment-expiry-info {
+    max-width: 100%;
+    margin: 0 0 20px 0;
+  }
 }

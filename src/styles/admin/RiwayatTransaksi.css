@@ -1,0 +1,484 @@
+/* Transaction History Styles */
+.transaction-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .filter-group label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .filter-select, .filter-input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    background: white;
+    min-width: 150px;
+  }
+  
+  .filter-select:focus, .filter-input:focus {
+    outline: none;
+    border-color: #7b3fe4;
+  }
+  
+  .date-range {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .date-separator {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .transaction-table th {
+    background: #f8f9fa;
+    padding: 15px 12px;
+    font-weight: 600;
+    color: #555;
+    text-align: left;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .transaction-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .transaction-table tr:hover {
+    background: #fafafa;
+  }
+  
+  .transaction-amount {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .transaction-positive {
+    color: #4caf50;
+  }
+  
+  .transaction-negative {
+    color: #f44336;
+  }
+  
+  .transaction-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .transaction-product {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+  }
+  
+  .transaction-id {
+    font-size: 11px;
+    color: #666;
+  }
+  
+  .customer-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .customer-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+  }
+  
+  .customer-email {
+    font-size: 11px;
+    color: #666;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+  }
+  
+  .pagination-info {
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .pagination-btn {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+  }
+  
+  .pagination-btn:hover:not(:disabled) {
+    background: #f5f5f5;
+    border-color: #7b3fe4;
+  }
+  
+  .pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination-numbers {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .page-number {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+  }
+  
+  .page-number:hover {
+    background: #f5f5f5;
+  }
+  
+  .page-number.active {
+    background: #7b3fe4;
+    color: white;
+    border-color: #7b3fe4;
+  }
+  
+  .export-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .export-btn {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+  }
+  
+  .export-btn:hover {
+    background: #388e3c;
+  }
+  
+  /* Transaction Summary */
+  .transaction-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .summary-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    text-align: center;
+  }
+  
+  .summary-value {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+  }
+  
+  .summary-label {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+  }
+  
+  .summary-semua .summary-value {
+    color: #7b3fe4;
+  }
+  
+  .summary-success .summary-value {
+    color: #4caf50;
+  }
+  
+  .summary-failed .summary-value {
+    color: #f44336;
+  }
+  
+  .summary-pending .summary-value {
+    color: #ff9800;
+  }
+  .transaction-id {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: #7b3fe4;
+    background: #f0eaff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .transaction-product {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  
+  .transaction-category {
+    font-size: 11px;
+    color: #666;
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 10px;
+    align-self: flex-start;
+    display: inline-block;
+  }
+  
+  .transaction-date {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .store-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .store-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+  }
+  
+  /* Detail Modal Enhancements */
+  .preview-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  
+  .preview-content {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .preview-header h3 {
+    margin: 0;
+    color: #111;
+    font-size: 20px;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .close-btn:hover {
+    background: #f5f5f5;
+  }
+  
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .preview-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .detail-group {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+  }
+  
+  .detail-group h4 {
+    margin: 0 0 12px 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .detail-group p {
+    margin: 8px 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .detail-group strong {
+    color: #333;
+    font-weight: 600;
+  }
+  
+  /* Status Badges untuk Detail */
+  .status-done, .status-failed, .status-pending {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-block;
+  }
+  
+  .status-done {
+    background: #d4edda;
+    color: #155724;
+  }
+  
+  .status-failed {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  .status-pending {
+    background: #fff3cd;
+    color: #856404;
+  }
+  
+  /* Search and Filter */
+  .search-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 300px;
+    background: white;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #7b3fe4;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .preview-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .preview-content {
+      padding: 20px;
+      margin: 10px;
+    }
+    
+    .transaction-filters {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .search-input {
+      width: 100%;
+    }
+    
+    .admin-table {
+      font-size: 12px;
+    }
+  }
+  
+  /* Hover Effects */
+  .transaction-row:hover {
+    background: #f8f9fa;
+    cursor: pointer;
+  }
+  
+  /* Loading State */
+  .loading-transactions {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+  }
+  
+  .loading-transactions::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #7b3fe4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

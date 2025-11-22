@@ -2,14 +2,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToko } from '../../context/TokoContext';
-import { useAuth } from '../../context/AuthContext';
+import { useUserAuth } from '../../context/UserAuthContext'; // <- PERBAIKAN: useAuth -> useUserAuth
 import '../../styles/toko/toko-base.css';
 import '../../styles/toko/buat_toko.css';
 
 const BuatToko = () => {
   const navigate = useNavigate();
   const { buatToko } = useToko();
-  const { user, updateUserProfile } = useAuth();
+  const { user, updateUserProfile } = useUserAuth(); // <- PERBAIKAN: useAuth -> useUserAuth
   const [formData, setFormData] = useState({
     namaToko: '',
     pemilik: user?.name || '', // Auto-fill dengan nama user
@@ -47,7 +47,7 @@ const BuatToko = () => {
       // Create toko
       const tokoData = buatToko({
         ...formData,
-        email: user?.email || localStorage.getItem('email') || 'toko@gmail.com'
+        email: user?.email || 'toko@gmail.com'
       });
 
       // Save nama pemilik ke localStorage untuk profil toko

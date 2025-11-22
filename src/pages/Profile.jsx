@@ -1,12 +1,12 @@
-// src/pages/Profile.jsx (Fully Updated)
+// src/pages/Profile.jsx
 import React, { useState, useEffect } from 'react';
 import { FaUser, FaStore, FaExchangeAlt, FaSignOutAlt, FaEdit, FaSave, FaTimes, FaCheck } from 'react-icons/fa';
-import { useAuth } from '../context/AuthContext';
+import { useUserAuth } from '../context/UserAuthContext';
 import { useToko } from '../context/TokoContext';
 import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
-  const { user, logout: authLogout, updateUserProfile } = useAuth();
+  const { user, logout: authLogout, updateUserProfile } = useUserAuth();
   const { tokoStatus, updateTokoStatus } = useToko();
   const navigate = useNavigate();
   
@@ -40,7 +40,7 @@ const Profile = () => {
   };
 
   const saveProfile = () => {
-    // Update melalui AuthContext
+    // Update melalui UserAuthContext
     updateUserProfile(profileData);
     setIsEditing(false);
     setOriginalValues({});
@@ -101,7 +101,13 @@ const Profile = () => {
   };
 
   if (!user) {
-    return <div>Loading...</div>;
+    return (
+      <section className="profile">
+        <div className="container">
+          <div className="app-loading">Loading...</div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -115,7 +121,7 @@ const Profile = () => {
               <p className="profile-email">{profileData.email}</p>
               <div className="profile-stats">
                 <div className="stat-item">
-
+                  {/* Stats can be added here later */}
                 </div>
                 <div className="stat-item">
                   <span className="stat-description">
@@ -166,7 +172,11 @@ const Profile = () => {
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       readOnly={!isEditing}
                     />
-                    <button className="edit-btn" onClick={() => enableEdit('name')}>
+                    <button 
+                      className="edit-btn" 
+                      onClick={() => enableEdit('name')}
+                      type="button"
+                    >
                       <FaEdit/>
                     </button>
                   </div>
@@ -182,7 +192,11 @@ const Profile = () => {
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       readOnly={!isEditing}
                     />
-                    <button className="edit-btn" onClick={() => enableEdit('email')}>
+                    <button 
+                      className="edit-btn" 
+                      onClick={() => enableEdit('email')}
+                      type="button"
+                    >
                       <FaEdit/>
                     </button>
                   </div>
@@ -191,11 +205,11 @@ const Profile = () => {
 
               {isEditing && (
                 <div className="form-actions">
-                  <button className="save-btn" onClick={saveProfile}>
+                  <button className="save-btn" onClick={saveProfile} type="button">
                     <FaSave/>
                     Simpan Perubahan
                   </button>
-                  <button className="cancel-btn" onClick={cancelEdit}>
+                  <button className="cancel-btn" onClick={cancelEdit} type="button">
                     <FaTimes/>
                     Batal
                   </button>
@@ -212,7 +226,7 @@ const Profile = () => {
           <div className="popup-content">
             <div className="popup-header">
               <h2><strong>Anda belum mempunyai toko mods</strong></h2>
-              <button className="popup-close" onClick={closeStorePopup}>
+              <button className="popup-close" onClick={closeStorePopup} type="button">
                 <FaTimes/>
               </button>
             </div>
@@ -220,11 +234,11 @@ const Profile = () => {
               <p>Apakah anda akan membuat toko?</p>
             </div>
             <div className="popup-actions">
-              <button className="popup-btn confirm-btn" onClick={createStore}>
+              <button className="popup-btn confirm-btn" onClick={createStore} type="button">
                 <FaCheck/>
                 Iya
               </button>
-              <button className="popup-btn cancel-btn" onClick={closeStorePopup}>
+              <button className="popup-btn cancel-btn" onClick={closeStorePopup} type="button">
                 <FaTimes/>
                 Tidak
               </button>
@@ -239,7 +253,7 @@ const Profile = () => {
           <div className="popup-content">
             <div className="popup-header">
               <h2><strong>Konfirmasi Logout</strong></h2>
-              <button className="popup-close" onClick={closeLogoutPopup}>
+              <button className="popup-close" onClick={closeLogoutPopup} type="button">
                 <FaTimes/>
               </button>
             </div>
@@ -247,11 +261,11 @@ const Profile = () => {
               <p>Apakah Anda yakin ingin logout?</p>
             </div>
             <div className="popup-actions">
-              <button className="popup-btn confirm-btn" onClick={performLogout}>
+              <button className="popup-btn confirm-btn" onClick={performLogout} type="button">
                 <FaCheck/>
                 Ya, Logout
               </button>
-              <button className="popup-btn cancel-btn" onClick={closeLogoutPopup}>
+              <button className="popup-btn cancel-btn" onClick={closeLogoutPopup} type="button">
                 <FaTimes/>
                 Batal
               </button>

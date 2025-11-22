@@ -1,0 +1,331 @@
+/* src/styles/toko/penarikan_saldo.css */
+/* Penarikan Saldo Styles */
+.toko-penarikan-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .toko-penarikan-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .toko-penarikan-header p {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .toko-penarikan-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Saldo Info */
+  .toko-saldo-info {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .toko-saldo-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .toko-saldo-label {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 10px;
+  }
+  
+  .toko-saldo-amount {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .toko-saldo-note {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+  /* Form Container */
+  .toko-penarikan-form-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  }
+  
+  .toko-penarikan-form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .toko-form-group {
+    margin-bottom: 25px;
+  }
+  
+  .toko-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  /* Input dengan Prefix */
+  .toko-input-with-prefix {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .toko-input-prefix {
+    position: absolute;
+    left: 15px;
+    color: #666;
+    font-weight: 500;
+    z-index: 1;
+  }
+  
+  .toko-nominal-input {
+    width: 100%;
+    padding: 15px 15px 15px 40px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    background: #fff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .toko-nominal-input:focus {
+    outline: none;
+    border-color: #7b3fe4;
+    box-shadow: 0 0 0 3px rgba(123, 63, 228, 0.1);
+  }
+  
+  .toko-nominal-input:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+  }
+  
+  /* Bank Select */
+  .toko-bank-select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .toko-bank-select:focus {
+    outline: none;
+    border-color: #7b3fe4;
+    box-shadow: 0 0 0 3px rgba(123, 63, 228, 0.1);
+  }
+  
+  .toko-bank-select:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+  }
+  
+  /* Input Rekening dan Nama */
+  .toko-rekening-input,
+  .toko-nama-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #fff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .toko-rekening-input:focus,
+  .toko-nama-input:focus {
+    outline: none;
+    border-color: #7b3fe4;
+    box-shadow: 0 0 0 3px rgba(123, 63, 228, 0.1);
+  }
+  
+  .toko-rekening-input:disabled,
+  .toko-nama-input:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+  }
+  
+  /* Form Hint */
+  .toko-form-hint {
+    font-size: 12px;
+    color: #666;
+    margin-top: 6px;
+  }
+  
+  /* Informasi Penarikan */
+  .toko-penarikan-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 25px 0;
+  }
+  
+  .toko-penarikan-info h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .toko-info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .toko-info-item:last-child {
+    border-bottom: none;
+  }
+  
+  .toko-info-item span:first-child {
+    color: #666;
+  }
+  
+  .toko-info-item span:last-child {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Submit Button */
+  .toko-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #7b3fe4;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toko-submit-btn:hover:not(:disabled) {
+    background: #6933c7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(123, 63, 228, 0.3);
+  }
+  
+  .toko-submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .toko-penarikan-form-container {
+      padding: 25px 20px;
+    }
+    
+    .toko-saldo-card {
+      padding: 20px;
+      min-width: auto;
+      width: 100%;
+    }
+    
+    .toko-saldo-amount {
+      font-size: 28px;
+    }
+    
+    .toko-penarikan-info {
+      padding: 15px;
+    }
+  }
+  /* Section Saldo */
+.toko-saldo-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .toko-saldo-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .toko-total-pendapatan-card {
+    background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .toko-saldo-label {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 10px;
+  }
+  
+  .toko-saldo-amount {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .toko-total-amount {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .toko-saldo-note {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .toko-saldo-section {
+      grid-template-columns: 1fr;
+    }
+    
+    .toko-saldo-card,
+    .toko-total-pendapatan-card {
+      padding: 20px;
+    }
+    
+    .toko-saldo-amount {
+      font-size: 28px;
+    }
+    
+    .toko-total-amount {
+      font-size: 24px;
+    }
+  }

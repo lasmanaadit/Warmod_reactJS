@@ -1,7 +1,7 @@
 // src/pages/Checkout.jsx
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../hooks/useCart';
-import {  FaTrash, FaLock, FaQrcode, FaWallet, FaShoppingCart } from 'react-icons/fa';
+import { FaTrash, FaLock, FaQrcode, FaWallet, FaShoppingCart } from 'react-icons/fa';
 
 const Checkout = () => {
   const { cartItems, removeFromCart } = useCart();
@@ -17,7 +17,7 @@ const Checkout = () => {
   }, []);
 
   const calculateTotals = () => {
-    const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+    const subtotal = cartItems.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
     const adminFee = Math.round(subtotal * 0.01); // 1%
     const total = subtotal + adminFee;
     
@@ -30,6 +30,12 @@ const Checkout = () => {
     if (method !== 'dana') { // Dana masih coming soon
       setPaymentMethod(method);
     }
+  };
+
+  // PERBAIKAN: Fungsi hapus item yang benar
+  const handleRemoveItem = (cartId) => {
+    console.log('Removing item with cartId:', cartId);
+    removeFromCart(cartId);
   };
 
   const processCheckout = () => {
@@ -55,7 +61,12 @@ const Checkout = () => {
       items: cartItems,
       deliveryEmail,
       paymentMethod,
+      subtotal,
+      adminFee,
+      total,
+      orderNumber: 'WM-' + Date.now(),
       timestamp: new Date().toISOString(),
+      expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // 24 jam
       status: 'pending'
     };
 
@@ -91,10 +102,10 @@ const Checkout = () => {
         <div className="checkout-content">
           {/* Cart Items */}
           <div className="cart-items">
-            <h2>Item dalam Keranjang</h2>
+            <h2>Item dalam Keranjang ({cartItems.length})</h2>
             <div id="cart-items-container">
               {cartItems.map((item, index) => (
-                <div key={index} className="cart-item">
+                <div key={item.cartId || index} className="cart-item">
                   <div className="cart-item-image">
                     <img src={item.image} alt={item.title} />
                   </div>
@@ -102,9 +113,19 @@ const Checkout = () => {
                     <div className="cart-item-title">{item.title}</div>
                     <div className="cart-item-category">{item.category}</div>
                     <div className="cart-item-seller">{item.seller}</div>
+                    {item.quantity > 1 && (
+                      <div className="cart-item-quantity">
+                        Quantity: {item.quantity}
+                      </div>
+                    )}
                   </div>
                   <div className="cart-item-price">Rp. {item.price.toLocaleString()}</div>
-                  <button className="cart-item-remove" onClick={() => removeFromCart(index)}>
+                  {/* PERBAIKAN: Gunakan cartId untuk remove */}
+                  <button 
+                    className="cart-item-remove" 
+                    onClick={() => handleRemoveItem(item.cartId)}
+                    title="Hapus dari keranjang"
+                  >
                     <FaTrash/>
                   </button>
                 </div>
@@ -128,7 +149,6 @@ const Checkout = () => {
                     value={deliveryEmail}
                     onChange={(e) => setDeliveryEmail(e.target.value)}
                   />
-                  
                 </div>
                 <p className="email-help">Mod akan dikirim ke email ini setelah pembayaran berhasil</p>
               </div>
@@ -156,7 +176,7 @@ const Checkout = () => {
 
               {/* Price Summary */}
               <div className="summary-item">
-                <span>Subtotal</span>
+                <span>Subtotal ({cartItems.length} item)</span>
                 <span id="subtotal">Rp. {subtotal.toLocaleString()}</span>
               </div>
               <div className="summary-item">

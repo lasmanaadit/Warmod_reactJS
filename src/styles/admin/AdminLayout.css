@@ -1,0 +1,281 @@
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    background: #fafafa;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .admin-sidebar {
+    width: 230px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  
+  .admin-avatar {
+    width: 40px;
+    height: 40px;
+    background: #ffb74d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .admin-info h4 {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .admin-info p {
+    font-size: 11px;
+    color: gray;
+    margin: 0;
+  }
+  
+  .admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .admin-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #444;
+    padding: 14px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  
+  .admin-nav a:hover {
+    background: #f5f5f5;
+    color: #7b3fe4;
+  }
+  
+  .admin-nav a.active {
+    background: #f0eaff;
+    color: #7b3fe4;
+    font-weight: 600;
+  }
+  
+  .nav-icon {
+    width: 16px;
+    text-align: center;
+  }
+  
+  .admin-logout {
+    margin-top: auto;
+    padding-top: 25px;
+  }
+  
+  .admin-logout a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d33;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+  }
+  
+  .admin-logout a:hover {
+    background: #ffeaea;
+  }
+  
+  .admin-main {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+  }
+  
+  .admin-main h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #111;
+  }
+  
+  /* Cards */
+  .admin-cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .admin-card {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 10px;
+  }
+  
+  .admin-card h4 {
+    color: gray;
+    font-size: 13px;
+    margin: 0 0 5px 0;
+  }
+  
+  .admin-card .value {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    color: #111;
+  }
+  
+  /* Table */
+  .admin-table-box {
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  
+  .admin-table thead {
+    background: #f3f3f7;
+  }
+  
+  .admin-table th {
+    padding: 14px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    text-align: left;
+  }
+  
+  .admin-table td {
+    padding: 16px 12px;
+    font-size: 13px;
+    color: #333;
+    vertical-align: middle;
+  }
+  
+  .admin-table tr:nth-child(even) {
+    background: #fafafa;
+  }
+  
+  /* Action Buttons */
+  .admin-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .admin-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  
+  .approve-btn {
+    background: #d9ffe8;
+    color: #15803d;
+  }
+  
+  .approve-btn:hover {
+    background: #c7f5d9;
+  }
+  
+  .decline-btn {
+    background: #ffe1e1;
+    color: #b91c1c;
+  }
+  
+  .decline-btn:hover {
+    background: #ffd3d3;
+  }
+  
+  .suspend-btn {
+    background: #ffd3d3;
+    color: #b30000;
+  }
+  
+  .suspend-btn:hover {
+    background: #ffb3b3;
+  }
+  
+  .unsuspend-btn {
+    background: #d7f7e3;
+    color: #167a3f;
+  }
+  
+  .unsuspend-btn:hover {
+    background: #c7f5d9;
+  }
+  
+  .suspend-btn.suspended {
+    background: #e5e5e5;
+    color: #666;
+    cursor: default;
+  }
+  
+  .preview-btn {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+  
+  .preview-btn:hover {
+    background: #bbdefb;
+  }
+  
+  /* Status Badges */
+  .status-active {
+    background: #d7f7e3;
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 6px;
+    color: #167a3f;
+  }
+  
+  .status-suspended {
+    background: #ffe1e1;
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 6px;
+    color: #b30000;
+  }
+  
+  .status-done {
+    background: #d7f7e3;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    color: #167a3f;
+  }
+  
+  .status-failed {
+    background: #ffd4d4;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    color: #b30000;
+  }

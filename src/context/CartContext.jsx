@@ -7,16 +7,18 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const cart = useCart();
 
-  // Listen untuk cart updates dari komponen lain
+  // Listen untuk cart updates dari window
   useEffect(() => {
     const handleCartUpdate = () => {
       cart.loadCartData(); // Reload data ketika ada update
     };
 
     window.addEventListener('cartUpdated', handleCartUpdate);
+    window.addEventListener('storage', handleCartUpdate);
     
     return () => {
       window.removeEventListener('cartUpdated', handleCartUpdate);
+      window.removeEventListener('storage', handleCartUpdate);
     };
   }, [cart]);
 

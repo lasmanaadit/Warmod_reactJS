@@ -22,25 +22,25 @@ const Sidebar = () => {
           to="/toko/dashboard" 
           className={location.pathname === '/toko/dashboard' ? 'toko-active' : ''}
         >
-          <i><FaHome /></i> Dashboard
+          <i></i> Dashboard
         </Link>
         <Link 
           to="/toko/upload" 
           className={location.pathname === '/toko/upload' ? 'toko-active' : ''}
         >
-          <i><FaUpload /></i> Upload Mod
+          <i></i> Upload Mod
         </Link>
         <Link 
-          to="/toko/pesanan" 
-          className={location.pathname === '/toko/pesanan' ? 'toko-active' : ''}
+          to="/toko/transaksi" 
+          className={location.pathname === '/toko/transaksi' ? 'toko-active' : ''}
         >
-          <i><FaMoneyBill /></i> Pesanan
+          <i></i> Daftar Transaksi
         </Link>
         <Link 
           to="/toko/profil" 
           className={location.pathname === '/toko/profil' ? 'toko-active' : ''}
         >
-          <i><FaUser /></i> Profil Toko
+          <i></i> Profil Toko
         </Link>
       </nav>
       <div className="toko-logout">

@@ -247,20 +247,20 @@ const Payment = () => {
                 </button>
               </div>
 
-              <div className="payment-status">
-                <div className="status-indicator">
-                  <div className={`status-dot ${paymentStatus === 'paid' ? 'paid' : ''}`}></div>
-                  <span id="payment-status-text" className={paymentStatus === 'paid' ? 'paid' : ''}>
-                    {paymentStatus === 'paid' ? 'Pembayaran Berhasil' : 'Menunggu Pembayaran'}
-                  </span>
-                </div>
-                <p className="status-description">
-                  {paymentStatus === 'paid' 
-                    ? 'Pembayaran Anda telah berhasil. Addon akan segera dikirim ke email Anda.'
-                    : 'Pembayaran akan diproses otomatis setelah Anda melakukan transfer'
-                  }
-                </p>
-              </div>
+              <div className="payment-status-section">
+  <div className="payment-status-indicator">
+    <div className={`payment-status-dot ${paymentStatus === 'paid' ? 'paid' : ''}`}></div>
+    <span className={`payment-status-text ${paymentStatus === 'paid' ? 'paid' : ''}`}>
+      {paymentStatus === 'paid' ? 'Pembayaran Berhasil' : 'Menunggu Pembayaran'}
+    </span>
+  </div>
+  <p className="payment-status-description">
+    {paymentStatus === 'paid' 
+      ? 'Pembayaran Anda telah berhasil. Addon akan segera dikirim ke email Anda.'
+      : 'Pembayaran akan diproses otomatis setelah Anda melakukan transfer'
+    }
+  </p>
+</div>
             </div>
           </div>
         </div>

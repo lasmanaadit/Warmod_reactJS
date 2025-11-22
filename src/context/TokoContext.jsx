@@ -3,58 +3,39 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 
 const TokoContext = createContext();
 
-export const useToko = () => {
-  const context = useContext(TokoContext);
-  if (!context) {
-    throw new Error('useToko must be used within a TokoProvider');
-  }
-  return context;
-};
-
 export const TokoProvider = ({ children }) => {
   const [tokoStatus, setTokoStatus] = useState(null);
   const [tokoData, setTokoData] = useState(null);
-
-  // Stabilkan fungsi dengan useCallback
-  const updateTokoStatus = useCallback((status, data = null) => {
-    setTokoStatus(status);
-    if (status) {
-      localStorage.setItem('tokoStatus', status);
-    } else {
-      localStorage.removeItem('tokoStatus');
-    }
-    
-    if (data) {
-      setTokoData(data);
-      localStorage.setItem('tokoData', JSON.stringify(data));
-    } else {
-      setTokoData(null);
-      localStorage.removeItem('tokoData');
-    }
-  }, []);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Load toko status from localStorage hanya sekali saat mount
-    const savedTokoStatus = localStorage.getItem('tokoStatus');
-    const savedTokoData = localStorage.getItem('tokoData');
+    const savedTokoStatus = localStorage.getItem('warmodTokoStatus');
+    const savedTokoData = localStorage.getItem('warmodTokoData');
     
     if (savedTokoStatus) {
       setTokoStatus(savedTokoStatus);
     }
-    
     if (savedTokoData) {
       setTokoData(JSON.parse(savedTokoData));
     }
-  }, []); // Empty dependency array - hanya dijalankan sekali
+    setLoading(false);
+  }, []);
+
+  const updateTokoStatus = useCallback((status, data = null) => {
+    setTokoStatus(status);
+    if (data) {
+      setTokoData(data);
+      localStorage.setItem('warmodTokoData', JSON.stringify(data));
+    }
+    localStorage.setItem('warmodTokoStatus', status);
+  }, []);
 
   const buatToko = useCallback((tokoData) => {
     const newTokoData = {
-      namaToko: tokoData.namaToko,
-      pemilik: tokoData.pemilik,
-      deskripsi: tokoData.deskripsi,
-      email: tokoData.email,
-      fotoProfil: tokoData.fotoProfil || null,
-      createdAt: new Date().toISOString()
+      ...tokoData,
+      id: Date.now(),
+      createdAt: new Date().toISOString(),
+      status: 'active'
     };
     
     updateTokoStatus('seller', newTokoData);
@@ -65,7 +46,8 @@ export const TokoProvider = ({ children }) => {
     tokoStatus,
     tokoData,
     updateTokoStatus,
-    buatToko
+    buatToko,
+    loading
   };
 
   return (
@@ -73,4 +55,12 @@ export const TokoProvider = ({ children }) => {
       {children}
     </TokoContext.Provider>
   );
+};
+
+export const useToko = () => {
+  const context = useContext(TokoContext);
+  if (!context) {
+    throw new Error('useToko must be used within a TokoProvider');
+  }
+  return context;
 };

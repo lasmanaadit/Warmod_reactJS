@@ -1,0 +1,264 @@
+/* Preview Modal */
+.preview-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  
+  .preview-content {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .preview-header h3 {
+    margin: 0;
+    color: #111;
+    font-size: 20px;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .close-btn:hover {
+    background: #f5f5f5;
+  }
+  
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .preview-images {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .preview-images h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .preview-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: transform 0.2s;
+  }
+  
+  .preview-image:hover {
+    transform: scale(1.02);
+  }
+  
+  .preview-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .detail-group {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+  }
+  
+  .detail-group h4 {
+    margin: 0 0 12px 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .detail-group p {
+    margin: 8px 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .detail-group strong {
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .detail-group ul {
+    margin: 8px 0;
+    padding-left: 20px;
+  }
+  
+  .detail-group li {
+    margin: 4px 0;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .drive-link-container {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .drive-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+  
+  .drive-link span {
+    flex: 1;
+    word-break: break-all;
+    font-size: 13px;
+    color: #333;
+  }
+  
+  .copy-btn {
+    background: #7b3fe4;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .copy-btn:hover {
+    background: #6932d0;
+  }
+  
+  .product-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .feature-tag {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .preview-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .preview-content {
+      padding: 20px;
+      margin: 10px;
+    }
+    
+    .admin-actions {
+      flex-direction: column;
+    }
+    
+    .admin-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  .verification-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .verification-table th {
+    background: #f8f9fa;
+    padding: 15px 12px;
+    font-weight: 600;
+    color: #555;
+    text-align: left;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .verification-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .drive-link-cell {
+    max-width: 250px;
+  }
+  
+  .drive-link-preview {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .drive-link-preview span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .copy-btn-small {
+    background: #7b3fe4;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 10px;
+    white-space: nowrap;
+  }

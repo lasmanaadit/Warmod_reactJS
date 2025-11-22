@@ -1,7 +1,8 @@
 // src/pages/Login.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styles from '../styles/Auth.module.css'; // ← CSS Module
+import { Link, useNavigate } from 'react-router-dom';
+import { useUserAuth } from '../context/UserAuthContext'; // <- PERUBAHAN DI SINI
+import styles from '../styles/Auth.module.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,12 +11,17 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [error, setError] = useState('');
+  
+  const { login } = useUserAuth(); // <- PERUBAHAN DI SINI
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    setError('');
   };
 
   const togglePasswordVisibility = () => {
@@ -25,35 +31,31 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Simulasi login berhasil
-    setShowPopup(true);
-    
-    // Save user data to localStorage
-    const userData = {
-      name: 'Lasmanaadit',
-      email: formData.email
-    };
-    localStorage.setItem('warmodProfile', JSON.stringify(userData));
-    localStorage.setItem('warmodIsLoggedIn', 'true');
-    
-    setTimeout(() => {
-      setShowPopup(false);
-      window.location.href = '/';
-    }, 1500);
+    const result = login(formData.email, formData.password);
+    if (result.success) {
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false);
+        navigate('/');
+      }, 1500);
+    } else {
+      setError(result.error);
+    }
   };
 
   return (
-    <div className={styles.authContainer}> {/* ← Gunakan CSS Module */}
-      {/* Back Button */}
+    <div className={styles.authContainer}>
       <Link to="/before-login" className={styles.backBtn}>
         <span className={styles.arrow}>‹</span> Back
       </Link>
 
-      <div className={styles.authBox}> {/* ← Gunakan CSS Module */}
+      <div className={styles.authBox}>
         <h2 className={styles.authTitle}>Log in</h2>
         <p className={styles.authSubtitle}>
           Tidak Mempunyai Akun? <Link to="/register">Daftar Disini</Link>
         </p>
+
+        {error && <div className={styles.errorMessage}>{error}</div>}
 
         <form className={styles.authForm} onSubmit={handleSubmit}>
           <label htmlFor="email" className={styles.authLabel}>Email address</label>
@@ -91,9 +93,16 @@ const Login = () => {
           <Link to="#" className={styles.forgotLink}>Lupa password?</Link>
           <button type="submit" className={styles.authButton}>Log in</button>
         </form>
+
+        {/* Demo Accounts Info */}
+        <div className={styles.demoAccounts}>
+          <h4>Demo Accounts:</h4>
+          <p>Email: user@example.com | Password: password123</p>
+          <p>Email: test@example.com | Password: test123</p>
+          <p>Email: demo@example.com | Password: demo123</p>
+        </div>
       </div>
 
-      {/* Success Popup */}
       {showPopup && (
         <div className={`${styles.authPopup} ${styles.show}`}>
           Login berhasil!
