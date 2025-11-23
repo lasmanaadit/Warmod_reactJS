@@ -38,6 +38,12 @@ import PermintaanVerifikasi from './pages/admin/PermintaanVerifikasi';
 import KelolaUser from './pages/admin/KelolaUser';
 import RiwayatTransaksi from './pages/admin/RiwayatTransaksi';
 
+import PrivacyPolicy from './pages/footer/PrivacyPolicy';
+import TermsOfService from './pages/footer/TermsOfService';
+import HowToBuy from './pages/footer/HowToBuy';
+import HowToInstall from './pages/footer/HowToInstall';
+import AboutUs from './pages/footer/AboutUs';
+
 import './App.css';
 import { 
   faGamepad, faHome, faSearch, faShoppingCart, faUser, 
@@ -116,7 +122,7 @@ const AdminRoute = ({ children }) => {
 
 // ========== APP LAYOUT COMPONENT ==========
 const AppLayout = ({ children, isAuthPage, isTokoPage, isAdminPage }) => {
-  const { isAuthenticated } = useUserAuth(); // <- PERUBAHAN DI SINI
+  const { isAuthenticated } = useUserAuth();
   
   return (
     <div className="app">
@@ -150,6 +156,11 @@ const AppRoutes = () => {
         
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+<Route path="/terms-of-service" element={<TermsOfService />} />
+<Route path="/how-to-buy" element={<HowToBuy />} />
+<Route path="/how-to-install" element={<HowToInstall />} />
+<Route path="/about-us" element={<AboutUs />} />
         
         {/* ========== AUTH ROUTES ========== */}
         <Route path="/login" element={

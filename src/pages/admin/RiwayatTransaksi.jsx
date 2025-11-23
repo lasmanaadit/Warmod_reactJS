@@ -324,21 +324,6 @@ const RiwayatTransaksi = () => {
                 Kirim Ulang Invoice
               </button>
               
-              <button 
-                className="admin-btn"
-                style={{ 
-                  background: '#f3e5f5',
-                  color: '#7b1fa2',
-                  flex: 1,
-                  padding: '12px'
-                }}
-                onClick={() => {
-                  // Aksi untuk kontak pembeli
-                  alert(`Membuka aplikasi email untuk ${selectedTransaction.pembeli.email}`);
-                }}
-              >
-                Kontak Pembeli
-              </button>
             </div>
           </div>
         </div>
