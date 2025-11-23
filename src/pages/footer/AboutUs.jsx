@@ -2,6 +2,7 @@
 
 import React from 'react';
 import '../../styles/footerpages/FooterPages.css';
+import { FaMapMarked, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 
 // Import foto tim dari folder footer
 import teamPhoto from './team-photo.jpg';
@@ -11,7 +12,7 @@ const AboutUs = () => {
     {
       name: 'Lasmana Adiyatma Prafia',
       role: 'Front end dan Desainer UI/UX',
-      bio: 'Bertanggung jawab atas Desain UI/UX dan front end warmod serta bertanggung jawab untuk pengembangan front end pada framwork React.js pada sistem WARMOD'
+      bio: 'Bertanggung jawab atas Desain UI/UX dan front end warmod serta bertanggung jawab untuk pengembangan front end pada Framework sistem WARMOD'
     },
     {
       name: 'Nanda Handika',
@@ -24,9 +25,14 @@ const AboutUs = () => {
       bio: 'Bertanggung jawab untuk membuat tampilan Front end dari halaman Admin dan Seller'
     },
     {
-      name: 'Siti jahro Afiah',
-      role: 'Project Manager',
-      bio: 'Bertanggung jawab untuk mengarahkan Project Warmods serta menyusun laporan dan prototype pada desain UI/UX pada Project ini'
+      name: 'Siti Jahro Afiah',
+      role: 'Project Manager ',
+      bio: 'Bertanggung jawab untuk mengarahkan Project Warmods serta menyusun laporan dan alur prototype pada desain UI/UX pada Project ini'
+    },
+    {
+      name: 'Ibuk E arek arek',
+      role: 'Project Manager ',
+      bio: 'Bertanggung jawab untuk Doa dari kelancaran project ini'
     }
   ];
 
@@ -63,7 +69,7 @@ const AboutUs = () => {
             <h2>Latar Belakang</h2>
             <p>WARMOD lahir dari observasi terhadap berkembangnya komunitas modding di Indonesia yang seringkali kesulitan menemukan platform yang terpercaya untuk berjual-beli mod game. Banyak kreator berbakat yang kesulitan memonetisasi karya mereka, sementara pemain game sulit menemukan mod berkualitas dengan support yang baik.</p>
             
-            <p>Diluncurkan pada tahun 2024, WARMOD hadir sebagai solusi untuk mempertemukan kedua pihak tersebut dalam ekosistem yang aman, terorganisir, dan menguntungkan semua pihak.</p>
+            <p>Diluncurkan pada tahun 2025, WARMOD hadir sebagai solusi untuk mempertemukan kedua pihak tersebut dalam ekosistem yang aman, terorganisir, dan menguntungkan semua pihak.</p>
           </section>
 
           <section className="mission-section">
@@ -120,20 +126,16 @@ const AboutUs = () => {
             <p>Kami selalu siap membantu dan mendengarkan masukan dari komunitas:</p>
             <div className="contact-grid">
               <div className="contact-item">
-                <strong>📧 Email</strong>
+                <strong><FaEnvelope/></strong>
                 <p>support@warmod.com</p>
               </div>
               <div className="contact-item">
-                <strong>💬 WhatsApp</strong>
+                <strong><FaWhatsapp/> WhatsApp</strong>
                 <p>+62 812-3456-7890</p>
               </div>
               <div className="contact-item">
-                <strong>🕐 Jam Operasional</strong>
-                <p>Senin - Minggu<br />09:00 - 18:00 WIB</p>
-              </div>
-              <div className="contact-item">
-                <strong>📍 Lokasi</strong>
-                <p>Jakarta, Indonesia</p>
+                <strong><FaMapMarked/> Lokasi</strong>
+                <p>Malang, Jawa Timur, Indonesia</p>
               </div>
             </div>
           </section>

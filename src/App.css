@@ -3245,3 +3245,431 @@ footer {
     margin: 0 0 20px 0;
   }
 }
+/* CSS khusus untuk Profile Page - Tidak bentrok dengan komponen lain */
+
+/* Riwayat Pembelian di Profile */
+.profile-purchase-history {
+  margin-top: 20px;
+}
+
+.profile-empty-purchase {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.profile-empty-purchase .profile-empty-message i {
+  font-size: 80px;
+  color: #ccc;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.profile-empty-purchase .profile-empty-message h2 {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.profile-empty-purchase .profile-empty-message p {
+  color: #888;
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Tabel di Profile */
+.profile-table-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #eaeaea;
+}
+
+.profile-purchase-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-purchase-table th {
+  background: #f8f9fa;
+  padding: 15px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-purchase-table td {
+  padding: 15px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+.profile-purchase-table tr:last-child td {
+  border-bottom: none;
+}
+
+.profile-purchase-table tr:hover {
+  background: #f8f9fa;
+}
+
+/* Kolom Produk */
+.profile-product-cell {
+  width: 30%;
+}
+
+.profile-product-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-product-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+.profile-product-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.profile-product-seller {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Kategori */
+.profile-category-tag {
+  background: #ff5722;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Harga */
+.profile-price-cell {
+  font-weight: 700;
+  color: #ff5722;
+  font-size: 14px;
+}
+
+/* Status */
+.profile-status-tag {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.profile-status-tag.status-paid {
+  background: #e8f5e8;
+  color: #2e7d32;
+  border: 1px solid #4caf50;
+}
+
+.profile-status-tag.status-pending {
+  background: #fff3e0;
+  color: #ef6c00;
+  border: 1px solid #ff9800;
+}
+
+.profile-status-tag.status-expired {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #f44336;
+}
+
+/* Tombol Preview */
+.profile-preview-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.profile-preview-btn:hover {
+  background: #1976D2;
+}
+
+/* Pagination untuk Profile */
+.profile-table-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-page-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: white;
+  color: #666;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.profile-page-btn:hover:not(:disabled) {
+  border-color: #ff5722;
+  color: #ff5722;
+}
+
+.profile-page-btn.active {
+  background: #ff5722;
+  border-color: #ff5722;
+  color: white;
+}
+
+.profile-page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Preview Modal di Profile */
+.profile-preview-modal {
+  max-width: 600px;
+}
+
+.profile-preview-content {
+  display: flex;
+  gap: 20px;
+}
+
+.profile-preview-image {
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid #e0e0e0;
+}
+
+.profile-preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-preview-details {
+  flex: 1;
+}
+
+.profile-preview-details h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.profile-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.profile-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-detail-item label {
+  font-size: 11px;
+  color: #666;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-detail-item span {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Badge di Preview */
+.profile-category-badge {
+  background: #ff5722;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+  width: fit-content;
+}
+
+.profile-email-info {
+  color: #2196F3 !important;
+  font-weight: 600 !important;
+}
+
+.profile-payment-method {
+  background: #2196F3;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+  width: fit-content;
+}
+
+.profile-status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.profile-status-badge.status-paid {
+  background: #e8f5e8;
+  color: #2e7d32;
+  border: 1px solid #4caf50;
+}
+
+.profile-status-badge.status-pending {
+  background: #fff3e0;
+  color: #ef6c00;
+  border: 1px solid #ff9800;
+}
+
+.profile-status-badge.status-expired {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #f44336;
+}
+
+.profile-price-amount {
+  color: #ff5722 !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+}
+
+/* Download Section di Preview */
+.profile-download-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eaeaea;
+}
+
+.profile-download-section label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.profile-download-link {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-link-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fafafa;
+  color: #666;
+  font-family: 'Courier New', monospace;
+}
+
+.profile-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 15px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.profile-copy-btn:hover {
+  background: #45a049;
+}
+
+/* Responsive Design untuk Profile */
+@media (max-width: 768px) {
+  .profile-table-container {
+    overflow-x: auto;
+  }
+  
+  .profile-purchase-table {
+    min-width: 600px;
+  }
+  
+  .profile-preview-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-preview-image {
+    align-self: center;
+  }
+  
+  .profile-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-table-pagination {
+    gap: 4px;
+  }
+  
+  .profile-page-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  .profile-download-link {
+    flex-direction: column;
+  }
+  
+  .profile-copy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
