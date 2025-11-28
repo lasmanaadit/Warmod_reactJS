@@ -37,6 +37,12 @@ const Sidebar = () => {
           <i></i> Daftar Transaksi
         </Link>
         <Link 
+          to="/toko/diskon" 
+          className={location.pathname === '/toko/diskon' ? 'toko-active' : ''}
+        >
+          <i></i> Management Diskon
+        </Link>
+        <Link 
           to="/toko/profil" 
           className={location.pathname === '/toko/profil' ? 'toko-active' : ''}
         >

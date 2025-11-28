@@ -30,6 +30,7 @@ import EditMod from './pages/toko/EditMod';
 import PreviewModToko from './pages/toko/PreviewModToko';
 import BuatToko from './pages/toko/BuatToko';
 import TermsAndCondition from './pages/toko/TermsAndCondition';
+import DiskonToko from './pages/toko/DiskonToko';
 
 // Admin Pages
 import AdminLogin from './pages/admin/AdminLogin';
@@ -157,10 +158,10 @@ const AppRoutes = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-<Route path="/terms-of-service" element={<TermsOfService />} />
-<Route path="/how-to-buy" element={<HowToBuy />} />
-<Route path="/how-to-install" element={<HowToInstall />} />
-<Route path="/about-us" element={<AboutUs />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/how-to-buy" element={<HowToBuy />} />
+        <Route path="/how-to-install" element={<HowToInstall />} />
+        <Route path="/about-us" element={<AboutUs />} />
         
         {/* ========== AUTH ROUTES ========== */}
         <Route path="/login" element={
@@ -252,6 +253,11 @@ const AppRoutes = () => {
         <Route path="/toko/transaksi" element={
           <SellerRoute>
             <TransaksiToko />
+          </SellerRoute>
+        } />
+        <Route path="/toko/diskon" element={
+          <SellerRoute>
+            <DiskonToko />
           </SellerRoute>
         } />
         

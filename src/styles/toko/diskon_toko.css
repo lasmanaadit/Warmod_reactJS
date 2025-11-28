@@ -1,0 +1,493 @@
+/* src/styles/toko/diskon_toko.css */
+/* Diskon Toko Styles */
+.toko-diskon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .toko-diskon-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .toko-diskon-header p {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .toko-btn-buat-diskon {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toko-btn-buat-diskon:hover:not(:disabled) {
+    background: #219653;
+    transform: translateY(-2px);
+  }
+  
+  .toko-btn-buat-diskon:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* Summary Cards */
+  .toko-diskon-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .toko-summary-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+  }
+  
+  .toko-summary-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: #7b3fe4;
+    margin-bottom: 8px;
+  }
+  
+  .toko-summary-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  /* Table Styles */
+  .toko-diskon-table-container {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+  }
+  
+  .toko-diskon-table-container h2 {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .toko-diskon-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .toko-diskon-table th {
+    background: #f8f9fa;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e9ecef;
+  }
+  
+  .toko-diskon-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+  }
+  
+  .toko-diskon-table tr:hover {
+    background: #f8f9fa;
+  }
+  
+  .toko-diskon-product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .toko-diskon-product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #f8f9fa;
+  }
+  
+  .toko-harga-asli {
+    color: #666;
+    text-decoration: line-through;
+  }
+  
+  
+  .toko-harga-diskon {
+    color: #27ae60;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  
+  .toko-periode-diskon {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .toko-status-diskon {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .toko-btn-hapus-diskon {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toko-btn-hapus-diskon:hover {
+    background: #c0392b;
+  }
+  
+  .toko-no-diskon {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+  }
+  
+  .toko-btn-buat-pertama {
+    background: #7b3fe4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .toko-btn-buat-pertama:hover {
+    background: #6933c7;
+  }
+  
+  /* Modal Styles */
+  .toko-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+  
+  .toko-modal-content {
+    background: white;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  
+  .toko-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .toko-modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .toko-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .toko-modal-close:hover {
+    background: #f8f9fa;
+    color: #333;
+  }
+  
+  /* Form Styles */
+  .toko-diskon-form {
+    padding: 30px;
+  }
+  
+  .toko-form-group {
+    margin-bottom: 25px;
+  }
+  
+  .toko-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .toko-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+  .toko-persentase-input,
+  .toko-date-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .toko-persentase-input:focus,
+  .toko-date-input:focus {
+    outline: none;
+    border-color: #7b3fe4;
+  }
+  
+  .toko-form-group small {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px;
+  }
+  
+  /* Produk List */
+  .toko-select-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .toko-select-all-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toko-select-all-btn:hover {
+    background: #2980b9;
+  }
+  
+  .toko-produk-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .toko-produk-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+  }
+  
+  .toko-produk-item:hover {
+    background: #f8f9fa;
+  }
+  
+  .toko-produk-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .toko-produk-checkbox {
+    margin: 0;
+  }
+  
+  .toko-produk-thumb {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #f8f9fa;
+  }
+  
+  .toko-produk-info {
+    flex: 1;
+  }
+  
+  .toko-produk-name {
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  
+  .toko-produk-price {
+    color: #27ae60;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .toko-no-products {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+  }
+  
+  /* Modal Actions */
+  .toko-modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+  }
+  
+  .toko-btn-cancel {
+    background: #95a5a6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toko-btn-cancel:hover {
+    background: #7f8c8d;
+  }
+  
+  .toko-btn-submit {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toko-btn-submit:hover:not(:disabled) {
+    background: #219653;
+  }
+  
+  .toko-btn-submit:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .toko-diskon-header {
+      flex-direction: column;
+      gap: 15px;
+      align-items: flex-start;
+    }
+    
+    .toko-diskon-summary {
+      grid-template-columns: 1fr;
+    }
+    
+    .toko-diskon-table {
+      display: block;
+      overflow-x: auto;
+    }
+    
+    .toko-form-row {
+      grid-template-columns: 1fr;
+    }
+    
+    .toko-modal-content {
+      margin: 10px;
+    }
+    
+    .toko-modal-header,
+    .toko-diskon-form {
+      padding: 20px;
+    }
+    
+    .toko-modal-actions {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .toko-diskon-product {
+      flex-direction: column;
+      text-align: center;
+      gap: 8px;
+    }
+    
+    .toko-produk-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 8px;
+    }
+    
+    .toko-select-header {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+  }
