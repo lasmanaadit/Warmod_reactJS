@@ -1,7 +1,7 @@
 // src/components/common/ProductCard.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../../hooks/useCart'; // ← PATH YANG BENAR
+import { useCart } from '../../hooks/useCart';
 import { FaDownload } from 'react-icons/fa';
 
 const ProductCard = ({ product }) => {
@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
   if (!product) {
     console.error('ProductCard: product prop is undefined');
     return (
-      <div className="product-card" style={{ border: '2px solid red' }}>
+      <div className="product-card product-card-error">
         <div className="product-info">
           <h3>Error: Product data missing</h3>
           <p>Product information is not available</p>
@@ -26,9 +26,15 @@ const ProductCard = ({ product }) => {
     category = 'Unknown Category',
     seller = 'Unknown Seller',
     price = 0,
+    originalPrice = price,
+    discount = 0,
     image = '',
     downloads = 0
   } = product;
+
+  // Hitung harga setelah diskon
+  const hasDiscount = discount > 0;
+  const finalPrice = hasDiscount ? Math.round(price * (1 - discount / 100)) : price;
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -38,8 +44,11 @@ const ProductCard = ({ product }) => {
       title: title,
       category: category,
       seller: seller,
-      price: price,
-      image: image
+      price: finalPrice,
+      originalPrice: originalPrice,
+      discount: discount,
+      image: image,
+      productId: id
     };
     
     addToCart(productData);
@@ -48,19 +57,18 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link to={`/product/${id}`} className="product-card" data-category={category}>
+      {/* Badge Diskon */}
+      {hasDiscount && (
+        <div className="discount-badge">
+          -{discount}%
+        </div>
+      )}
+      
       <div className="product-image">
         {image ? (
           <img src={image} alt={title} />
         ) : (
-          <div style={{
-            width: '100%',
-            height: '180px',
-            background: '#f5f5f5',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#666'
-          }}>
+          <div className="no-image">
             No Image
           </div>
         )}
@@ -69,22 +77,45 @@ const ProductCard = ({ product }) => {
       
       <div className="product-info">
         <h3 className="product-title">{title}</h3>
-        <div className="product-price">Rp.{price.toLocaleString()}</div>
+        
+        {/* Pricing Section - SAMA untuk diskon dan normal */}
+        <div className="product-pricing">
+          {hasDiscount ? (
+            <div className="pricing-with-discount">
+              <div className="price-row">
+                <span className="original-price">Rp {originalPrice.toLocaleString('id-ID')}</span>
+                {finalPrice === 0 ? (
+                  <span className="free-price">FREE</span>
+                ) : (
+                  <span className="final-price">Rp {finalPrice.toLocaleString('id-ID')}</span>
+                )}
+              </div>
+            </div>
+          ) : (
+            <div className="pricing-normal">
+              {price === 0 ? (
+                <span className="free-price">FREE</span>
+              ) : (
+                <span className="normal-price">Rp {price.toLocaleString('id-ID')}</span>
+              )}
+            </div>
+          )}
+        </div>
         
         <div className="product-stats">
           <div className="stat">
             <FaDownload/> {downloads} Unduhan
           </div>
           {seller && (
-            <div className="stat" style={{ fontSize: '12px', color: '#666' }}>
+            <div className="seller-info">
               by {seller}
             </div>
           )}
         </div>
         
-        <div className="buy-button" onClick={handleAddToCart}>
-          MASUKAN KERANJANG
-        </div>
+        <button className="buy-button" onClick={handleAddToCart}>
+          MASUKKAN KERANJANG
+        </button>
       </div>
     </Link>
   );

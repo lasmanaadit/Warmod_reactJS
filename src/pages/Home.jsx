@@ -7,59 +7,63 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [displayedProducts, setDisplayedProducts] = useState([]);
 
-  // Load products from localStorage or use default
-  const featuredProducts = JSON.parse(localStorage.getItem('warmodProducts')) || [
+  // Data produk dengan diskon - struktur yang konsisten
+  const featuredProducts = [
     {
       id: 1,
-      title: "UD Quester 1.56",
+      title: "UD Quester 1.56 UD Quester 1.56 Dengan fitur lengkap serta sound yang sangat realistic",
       category: "ETS2",
       seller: "WARMOD",
-      price: 100000,
-      image: "ets2_20240328_230125_00.png",
-      downloads: 192
+      price: 100000, // Harga normal
+      originalPrice: 100000,
+      discount: 50, // Diskon 50%
+      discountEndDate: "2024-12-31",
+      image: "/images/products/ets2_20240328_230125_00.png",
+      downloads: 192,
     },
     {
       id: 2,
       title: "EP3 Edit Jetbus 3 Pack",
-      category: "BUSSID",
+      category: "BUSSID", 
       seller: "Yellow Flash",
       price: 100000,
-      image: "ets2_20240816_171954_00.png",
-      downloads: 156
+      originalPrice: 100000,
+      discount: 0, // Tidak ada diskon
+      discountEndDate: null,
+      image: "/images/products/ets2_20240816_171954_00.png",
+      downloads: 156,
     },
     {
       id: 3,
-      title: "Scania R500 Premium",
-      category: "ETS2",
-      seller: "TruckMaster",
+      title: "LOCO PACK",
+      category: "TRAINZ",
+      seller: "WARMOD",
       price: 150000,
-      image: "ets2_20240816_171521_00.png",
-      downloads: 89
+      originalPrice: 200000,
+      discount: 25, // Diskon 25%
+      discountEndDate: "2024-11-30",
+      image: "/images/products/locopack.jpg",
+      downloads: 89,
     },
     {
       id: 4,
-      title: "Mercedes Tourismo",
+      title: "Old Setra",
       category: "BUSSID",
-      seller: "BusLover",
-      price: 120000,
-      image: "ets2_20240815_211333_00.png",
-      downloads: 67
-    },
-    {
-      id: 5,
-      title: "Train Simulator Pack",
-      category: "TRAINZ",
-      seller: "RailExpert",
-      price: 180000,
-      image: "jwn.png",
-      downloads: 45
+      seller: "German Mods",
+      price: 0,
+      originalPrice: 0,
+      discount: 0,
+      discountEndDate: null,
+      image: "/images/products/jwn.png",
+      downloads: 67,
     }
   ];
-  
 
   useEffect(() => {
-    // Save to localStorage if not exists
-    if (!localStorage.getItem('warmodProducts')) {
+    // Load products dari localStorage atau gunakan default
+    const savedProducts = localStorage.getItem('warmodProducts');
+    
+    if (!savedProducts) {
       localStorage.setItem('warmodProducts', JSON.stringify(featuredProducts));
     }
     
@@ -67,14 +71,23 @@ const Home = () => {
   }, [selectedCategory]);
 
   const filterProducts = () => {
-    if (selectedCategory === 'all') {
-      setDisplayedProducts(featuredProducts.slice(0, 8)); // Show first 8 products
-    } else {
-      const filtered = featuredProducts.filter(product => 
-        product.category === selectedCategory
-      ).slice(0, 8);
-      setDisplayedProducts(filtered);
+    let productsToDisplay = featuredProducts;
+
+    // Coba load dari localStorage dulu
+    try {
+      const savedProducts = localStorage.getItem('warmodProducts');
+      if (savedProducts) {
+        productsToDisplay = JSON.parse(savedProducts);
+      }
+    } catch (error) {
+      console.error('Error loading products from localStorage:', error);
     }
+
+    if (selectedCategory !== 'all') {
+      productsToDisplay = productsToDisplay.filter(product => product.category === selectedCategory);
+    }
+
+    setDisplayedProducts(productsToDisplay.slice(0, 8)); // Show first 8 products
   };
 
   const handleCategoryFilter = (category) => {

@@ -1,6 +1,5 @@
 // src/pages/Products.jsx
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import ProductCard from '../components/common/ProductCard';
 import { useSearch } from '../context/SearchContext';
 import { FaSearch } from 'react-icons/fa';
@@ -25,120 +24,51 @@ const Products = () => {
     const defaultProducts = [
       {
         id: 1,
-        title: "UD Quester 1.56",
+        title: "UD Quester 1.56 Dengan fitur lengkap serta sound yang sangat realistic",
         category: "ETS2",
         seller: "WARMOD",
-        price: 100000,
-        image: "ets2_20240328_230125_00.png",
+        price: 100000, // Harga setelah diskon
+        originalPrice: 100000, // Harga asli yang akan dicoret
+        discount: 50,
+        discountEndDate: "2024-12-31",
+        image: "/images/products/ets2_20240328_230125_00.png",
         downloads: 192
       },
       {
         id: 2,
-        title: "EP3 Edit Jetbus 3 Pack",
+        title: "EP3 Edit Jetbus 3 Pack", 
         category: "BUSSID",
         seller: "Yellow Flash",
         price: 100000,
-        image: "ets2_20240816_171954_00.png",
+        originalPrice: 100000,
+        discount: 0,
+        discountEndDate: null,
+        image: "/images/products/ets2_20240816_171954_00.png",
         downloads: 156
       },
       {
-        id: 13,
+        id: 3,
+        title: "LOCOPACK", 
+        category: "TRAINZ",
+        seller: "DIGIRAILS",
+        price: 100000,
+        originalPrice: 100000,
+        discount: 25,
+        discountEndDate: null,
+        image: "/images/products/locopack.jpg",
+        downloads: 156
+      },
+      {
+        id: 4,
         title: "Old Setra",
         category: "BUSSID",
-        seller: "WARMOD",
-        price: 25000,
-        image: "jwn.png",
-        downloads: 78
-      },
-      {
-        id: 14,
-        title: "Volvo FH16 2020",
-        category: "ETS2",
-        seller: "TruckMaster",
-        price: 175000,
-        image: "ets2_20240816_171521_00.png",
-        downloads: 120
-      },
-      {
-        id: 15,
-        title: "MAN Lion's Coach",
-        category: "BUSSID",
-        seller: "BusExpert",
-        price: 135000,
-        image: "ets2_20240815_211333_00.png",
-        downloads: 95
-      },
-      {
-        id: 16,
-        title: "Japanese Train Pack",
-        category: "TRAINZ",
-        seller: "RailMaster",
-        price: 220000,
-        image: "jwn.png",
-        downloads: 60
-      },
-      {
-        id: 17,
-        title: "Scania S730",
-        category: "ETS2",
-        seller: "TruckLover",
-        price: 190000,
-        image: "ets2_20240328_230125_00.png",
-        downloads: 110
-      },
-      {
-        id: 18,
-        title: "Mercedes Intouro",
-        category: "BUSSID",
-        seller: "BusPro",
-        price: 125000,
-        image: "ets2_20240816_171954_00.png",
-        downloads: 85
-      },
-      {
-        id: 19,
-        title: "European Train Set",
-        category: "TRAINZ",
-        seller: "RailExpert",
-        price: 250000,
-        image: "jwn.png",
-        downloads: 45
-      },
-      {
-        id: 20,
-        title: "Renault T Highline",
-        category: "ETS2",
-        seller: "TruckPro",
-        price: 165000,
-        image: "ets2_20240816_171521_00.png",
-        downloads: 75
-      },
-      {
-        id: 21,
-        title: "Setra MultiClass",
-        category: "BUSSID",
-        seller: "BusMaster",
-        price: 140000,
-        image: "ets2_20240815_211333_00.png",
-        downloads: 88
-      },
-      {
-        id: 22,
-        title: "American Locomotive",
-        category: "TRAINZ",
-        seller: "RailPro",
-        price: 280000,
-        image: "jwn.png",
-        downloads: 35
-      },
-      {
-        id: 23,
-        title: "Setra sssMultiClass",
-        category: "BUSSID",
-        seller: "BusMaster",
-        price: 140000,
-        image: "ets2_20240815_211333_00.png",
-        downloads: 88
+        seller: "German Mods",
+        price: 0,
+        originalPrice: 0,
+        discount: 0,
+        discountEndDate: null,
+        image: "/images/products/jwn.png",
+        downloads: 67,
       }
     ];
 
